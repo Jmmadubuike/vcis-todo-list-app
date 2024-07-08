@@ -22,6 +22,7 @@ main {
 
 form {
     display: flex;
+    flex-wrap: wrap;
     gap: 1em;
     margin-bottom: 1em;
 }
@@ -29,6 +30,11 @@ form {
 form input, form select, form button {
     padding: 0.5em;
     font-size: 1em;
+    flex: 1 1 calc(100% - 2em);
+}
+
+form button {
+    flex: 1 1 100%;
 }
 
 ul {
@@ -40,17 +46,23 @@ li {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 1em;
     padding: 1em;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 li.completed {
     text-decoration: line-through;
     color: #999;
+}
+
+li span {
+    flex: 1 1 100%;
+    margin-bottom: 0.5em;
 }
 
 button {
@@ -64,4 +76,19 @@ button {
 
 button:hover {
     background-color: #cc0000;
+}
+
+@media (min-width: 600px) {
+    form input, form select, form button {
+        flex: 1 1 auto;
+    }
+
+    form button {
+        flex: 0 0 auto;
+    }
+
+    li span {
+        flex: 1 1 auto;
+        margin-bottom: 0;
+    }
 }
