@@ -28,11 +28,14 @@ function createTaskElement(task) {
     li.className = task.completed ? 'completed' : '';
     li.innerHTML = `
         <span>${task.name} - ${task.dueDate} - ${task.priority}</span>
-        <button onclick="deleteTask(${task.id})">Delete</button>
-        <button onclick="toggleTaskCompletion(${task.id})">Complete</button>
+        <div>
+            <button onclick="toggleTaskCompletion(${task.id})">Complete</button>
+            <button onclick="deleteTask(${task.id})">Delete</button>
+        </div>
     `;
     return li;
 }
+
 
 function renderTasks() {
     const taskList = document.getElementById('task-list');
